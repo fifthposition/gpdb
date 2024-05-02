@@ -33,17 +33,17 @@ To install gpMLBot, you will need:
 
     1. Append the record line to the configuration file.
 
-    ```
-    $ echo -e 'host\tgpmlbot\tgpmlbot\tsamehost\ttrust' >> ${COORDINATOR_DATA_DIRECTORY}/pg_hba.conf
-    ```
+        ```
+        $ echo -e 'host\tgpmlbot\tgpmlbot\tsamehost\ttrust' >> ${COORDINATOR_DATA_DIRECTORY}/pg_hba.conf
+        ```
 
     1. If connecting remotely, add a record for the database user and its remote IP and hostname.
 
     1. Use the `gpstop` utility to reload your configuration file changes without shutting down the VMware Greenplum system:
 
-    ```
-    $ gpstop -u
-    ```
+        ```
+        $ gpstop -u
+        ```
 
 ## Installing
 
