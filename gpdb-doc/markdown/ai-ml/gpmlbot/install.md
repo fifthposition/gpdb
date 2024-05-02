@@ -27,7 +27,7 @@ To install gpMLBot, you will need:
     $ psql --dbname=gpmlbot -c "CREATE EXTENSION IF NOT EXISTS pgml;"
     ```
 
-1. A `gpmlbot` user record in the `pg_hba.conf` file.
+* A `gpmlbot` user record in the `pg_hba.conf` file.
 
     To add the `gpmlbot` user:
 
