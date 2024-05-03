@@ -8,7 +8,7 @@ The VMware Greenplum Automated Machine Learning Agent (gpMLBot) provides a conve
 
 To install gpMLBot, you will need:
 
-* The Data Science bundle, to enable PostgresML. For information about installing the Data Science bundle, see [Before Registering the postgresml Module](../ref_guide/modules/postgresml.html#prereqs) in _postgresml_.
+* The Python Data Science Package, to enable PostgresML. For information about installing the Data Science bundle, see [Before Registering the postgresml Module](../ref_guide/modules/postgresml.html#prereqs) in _postgresml_.
 
 * A `gpmlbot` database, which will be used internally to store trained models.
 
@@ -18,9 +18,9 @@ To install gpMLBot, you will need:
     $ createdb gpmlbot
     ```
 
-* MADlib and PostgresML installed on any additional user databases.
+* MADlib and PostgresML installed on the `gpmlbot` database and any additional user databases.
 
-    To install MADlib and PostgresML:
+    To install MADlib and PostgresML on the `gpmlbot` database:
 
     ```
     $ madpack -p greenplum -c /gpmlbot install
@@ -47,30 +47,38 @@ To install gpMLBot, you will need:
 
 ## Installing
 
-To install gpMLBot:
+You can install gpMLBot in the default location, `/usr/local/bin/`, for all hosts. Alternatively, you can install to a custom location.
 
-1. Install the gpmlbot utility to the default or a user-defined location.
+* To install to the default location on all hosts:
 
-    To install to the default `/usr/local/bin/` location on all hosts, use the `yum` command with `sudo` (or as `root`):
+    1. Use the `yum` command with `sudo` (or as `root`):
 
-    ```
-    $ sudo yum install gpugrade-<version>.el7.x86_64.rpm
-    ```
+        ```
+        $ sudo yum install gpmlbot-<version>.el7.x86_64.rpm
+        ```
 
-    Alternatively, install the `gpmlbot` utility to a user-specified location:
+    1. Change the owner and group of the installed files to `gpadmin`:
 
-    ```
-    $ sudo rpm  --prefix=<USER_DIRECTORY> -ivh gpmlbot-<version>.el7.x86_64.rpm
-    ```
+        ```
+        $ sudo chown -R gpadmin:gpadmin /usr/local/bin/greenplum/*
+        ```
 
-1. Add the `gpmlbot` binaries to the user's executable path:
+* To install in a custom location:
 
-    ```
-    $ export PATH=<USER_DIRECTORY>:$PATH
-    ```
+    1. Use the `rpm` command with the `--prefix` option:
 
-1. Change the owner and group of the installed files to `gpadmin`:
+        ```
+        $ sudo rpm  --prefix=<USER_DIRECTORY> -ivh gpmlbot-<version>.el7.x86_64.rpm
+        ```
 
-    ```
-    $ sudo chown -R gpadmin:gpadmin <USER_DIRECTORY>/greenplum/gpmlbot/*
-    ```
+    1. Add the custom location to the user's executable path:
+
+        ```
+        $ export PATH=<USER_DIRECTORY>:$PATH
+        ```
+
+    1. Change the owner and group of the installed files to `gpadmin`:
+
+        ```
+        $ sudo chown -R gpadmin:gpadmin <USER_DIRECTORY>/greenplum/gpmlbot/*
+        ```
