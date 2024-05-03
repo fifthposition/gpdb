@@ -51,13 +51,13 @@ You can install gpMLBot in the default location, `/usr/local/bin/`, for all host
 
 * To install to the default location on all hosts:
 
-    1. Use the `yum` command with `sudo` (or as `root`):
+    1. Use the `yum` command with `sudo` (or as `root`).
 
         ```
         $ sudo yum install gpmlbot-<version>.el7.x86_64.rpm
         ```
 
-    1. Change the owner and group of the installed files to `gpadmin`:
+    1. Change the owner and group of the installed files to `gpadmin`.
 
         ```
         $ sudo chown -R gpadmin:gpadmin /usr/local/bin/greenplum/*
@@ -65,19 +65,19 @@ You can install gpMLBot in the default location, `/usr/local/bin/`, for all host
 
 * To install in a custom location:
 
-    1. Use the `rpm` command with the `--prefix` option:
+    1. Use the `rpm` command with the `--prefix` option.
 
         ```
         $ sudo rpm  --prefix=<USER_DIRECTORY> -ivh gpmlbot-<version>.el7.x86_64.rpm
         ```
 
-    1. Add the custom location to the user's executable path:
+    1. Add the custom location to the user's executable path.
 
         ```
         $ export PATH=<USER_DIRECTORY>:$PATH
         ```
 
-    1. Change the owner and group of the installed files to `gpadmin`:
+    1. Change the owner and group of the installed files to `gpadmin`.
 
         ```
         $ sudo chown -R gpadmin:gpadmin <USER_DIRECTORY>/greenplum/gpmlbot/*
